@@ -1,5 +1,5 @@
 {
-    "name": "rusty-mc-fly/comment-cms-page",
+    "name": "rustymcfly/comment-cms-page",
     "description": "Skeleton plugin",
     "type": "shopware-platform-plugin",
     "version": "1.0.0",
