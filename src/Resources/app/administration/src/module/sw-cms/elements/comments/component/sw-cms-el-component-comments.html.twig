@@ -1,0 +1,10 @@
+{% block sw_cms_el_component_comments %}
+    <div class="sw-cms-el-component-comments">
+        <h3>Comments</h3>
+        <div v-for="comment in element.data.comments" class="sw-cms-el-component-comments__comment">
+            <b>{{ comment.firstName }} {{ comment.lastName }}</b> {{ comment.createdAt }}
+            <br>{{ comment.comment }}
+            <hr>
+        </div>
+    </div>
+{% endblock %}

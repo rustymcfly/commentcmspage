@@ -1,0 +1,15 @@
+<form method="post" action="{{ path('frontend.comments.post', { categoryId: page.navigationId }) }}">
+
+    {% if parentId is defined %}
+        <input name="parentId" value="{{ parentId }}" type="hidden">
+    {% endif %}
+    <label for="firstName">{{ 'account.personalFirstNameLabel'|trans }}</label>
+    <input class="form-control" id="firstName" name="firstName" placeholder="{{ 'account.personalFirstNamePlaceholder'|trans }}"/>
+    <label for="lastName">{{ 'account.personalLastNameLabel'|trans }}</label>
+    <input class="form-control" id="lastName" name="lastName" placeholder="{{ 'account.personalLastNamePlaceholder'|trans }}"/>
+    <label for="email">{{ 'account.loginMailLabel'|trans }}</label>
+    <input class="form-control" id="email" name="email" placeholder="{{ 'account.loginMailPlaceholder'|trans }}"/>
+    <label for="text">{{ 'contact.commentLabel'|trans }}</label>
+    <textarea class="form-control" id="text" name="text" placeholder="{{ 'account.orderItemCustomerComment'|trans }}"></textarea>
+    <button class="btn btn-primary" type="submit">{{ 'contact.formSubmit'|trans }}</button>
+</form>

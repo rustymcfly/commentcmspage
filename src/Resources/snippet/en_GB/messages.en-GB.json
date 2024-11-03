@@ -1,0 +1,10 @@
+{
+    "offer": {
+        "formSubmit":"Request offer now",
+        "submitText":"Request offer now",
+        "headline":"Request offer",
+        "productSelection": "Product",
+        "success": "Thank you",
+        "productPlaceholder": "Product"
+    }
+}

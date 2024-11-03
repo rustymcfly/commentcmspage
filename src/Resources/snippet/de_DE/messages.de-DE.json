@@ -1,0 +1,14 @@
+{
+    "plugin": {
+        "RustyMcFly": {
+            "CommentCmsPage": {
+                "commentButton": "Kommentieren",
+                "commentHeadline": "<b>%firstName% %lastName%</b> <small>am %createdAt%</small>",
+                "replyButton": "Antworten",
+                "comments": "Kommentare",
+                "verifyYourEmail": "Vielen Dank für deinen Kommentar. Wir haben dir eine E-Mail geschickt, damit du deine E-Mail Adresse bestätigen kannst",
+                "emailVerified": "Vielen Dank für das Bestätigen deiner E-Mail Adresse. Dein Kommentar wird nun geprüft!"
+            }
+        }
+    }
+}

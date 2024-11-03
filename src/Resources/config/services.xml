@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="RustyMcFly\CommentCmsPage\ScheduledTask\DeleteUnverifiedComments">
+            <tag name="shopware.scheduled.task"/>
+        </service>
+
+        <service id="RustyMcFly\CommentCmsPage\Core\Validation\CommentFormValidationFactory">
+            <argument type="service" id="event_dispatcher"/>
+        </service>
+
+
+        <service id="RustyMcFly\CommentCmsPage\Core\Content\Comment\SalesChannel\CommentCmsElementResolver">
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="RustyMcFly\CommentCmsPage\Core\Content\Comment\Events\CommentStorer">
+            <argument id="event_dispatcher" type="service"/>
+            <argument id="comment.repository" type="service"/>
+            <tag name="flow.storer"/>
+        </service>
+
+
+        <service id="RustyMcFly\CommentCmsPage\Storefront\Controller\CommentsController" public="true">
+            <argument id="comment.repository" type="service"/>
+            <argument id="RustyMcFly\CommentCmsPage\Core\Content\Comment\SalesChannel\CommentsRoute" type="service"/>
+            <argument id="event_dispatcher" type="service"/>
+            <argument id="RustyMcFly\CommentCmsPage\Core\Validation\CommentFormValidationFactory" type="service"/>
+            <argument type="service" id="Shopware\Core\Framework\Validation\DataValidator"/>
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
+        </service>
+
+        <service id="RustyMcFly\CommentCmsPage\Core\Content\Comment\SalesChannel\CommentsRoute">
+            <argument type="service" id="comment.repository"/>
+        </service>
+
+        <service id="RustyMcFly\CommentCmsPage\Subscriber\BusinessEventCollectorSubscriber">
+            <argument type="service" id="Shopware\Core\Framework\Event\BusinessEventCollector"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="RustyMcFly\CommentCmsPage\Core\Content\Comment\CommentDefinition">
+            <tag name="shopware.entity.definition" entity="comment"/>
+        </service>
+        <service id="RustyMcFly\CommentCmsPage\Core\Content\Category\CommentsExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+    </services>
+</container>

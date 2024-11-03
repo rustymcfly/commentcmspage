@@ -1,0 +1,18 @@
+
+{% block sw_category_detail_entry_point %}
+    {% parent %}
+
+<sw-card
+        class="sw-category-comment-card"
+        position-identifier="sw-category-comment"
+        :title="$tc('plugin.RustyMcFly.CommentCmsPage.label')"
+>
+    <sw-entity-listing :fullPage="false" :repository="commentRepository" :criteria="commentCriteria" :columns="commentColumns" :items="comments">
+        <template #column-emailVerifiedAt="{item}">
+            {{ dateFilter(item.emailVerifiedAt) }}
+        </template> <template #column-createdAt="{item}">
+            {{ dateFilter(item.emailVerifiedAt) }}
+        </template>
+    </sw-entity-listing>
+</sw-card>
+{% endblock %}

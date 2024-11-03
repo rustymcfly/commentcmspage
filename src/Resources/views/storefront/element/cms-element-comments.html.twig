@@ -1,0 +1,21 @@
+{% block element_comments %}
+    {% set config = element.fieldConfig.elements %}
+
+    <div class="cms-element-{{ element.type }}">
+        <h3>{{ 'plugin.RustyMcFly.CommentCmsPage.comments'|trans }}</h3>
+
+        {% sw_include '@CommentCmsPage/storefront/component/comment-list.html.twig' with {
+            data: element.data
+        } %}
+        <br/>
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#reply-comment-main"
+                    aria-expanded="false" aria-controls="reply-comment-{{ comment.id }}">
+                {{ 'plugin.RustyMcFly.CommentCmsPage.commentButton'|trans }}
+            </button>
+        </p>
+        <div class="collapse" id="reply-comment-main">
+            {% sw_include '@CommentCmsPage/storefront/component/comment-form.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

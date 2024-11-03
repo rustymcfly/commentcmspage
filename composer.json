@@ -1,0 +1,27 @@
+{
+    "name": "rusty-mc-fly/comment-cms-page",
+    "description": "Skeleton plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "6.5.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "RustyMcFly\\CommentCmsPage\\CommentCmsPage",
+        "label": {
+            "de-DE": "Comment Cms Pages",
+            "en-GB": "Comment Cms Pages"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "RustyMcFly\\CommentCmsPage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RustyMcFly\\CommentCmsPage\\Tests\\": "tests/"
+        }
+    }
+}

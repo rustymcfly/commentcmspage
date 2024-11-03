@@ -1,0 +1,38 @@
+{# @var data \RustyMcFly\CommentCmsPage\Core\Content\Comment\CommentCollection #}
+<ul>
+    {% for comment in data %}
+        <li data-comment-id="{{ comment.id }}" data-parent-id="{{ comment.parentId }}">
+            {{ 'plugin.RustyMcFly.CommentCmsPage.commentHeadline'|trans({
+                '%firstName%': comment.firstName,
+                '%lastName%': comment.lastName,
+                '%createdAt%': comment.createdAt|format_datetime('short', 'short')
+            })|raw }}
+            <p>{{ comment.text }}</p>
+            {% sw_include '@CommentCmsPage/storefront/component/comment-list.html.twig' with {
+                data: comment.children,
+                parentId: parentId,
+            } %}
+            {% if comment.parentId and loop.index == data.count or comment.parentId == null and comment.children.count == 0 %}
+                <p>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#reply-comment-{{ comment.id }}" aria-expanded="false"
+                            aria-controls="reply-comment-{{ comment.id }}">
+                        {{ 'plugin.RustyMcFly.CommentCmsPage.replyButton'|trans }}
+                    </button>
+                </p>
+            {% endif %}
+
+            {% if parentId is not defined or parentId is null %}
+                {% set parentId = comment.id %}
+            {% endif %}
+            {% if comment.parentId %}
+                {% set parentId = comment.parentId %}
+            {% endif %}
+            <div class="collapse" id="reply-comment-{{ comment.id }}">
+                {% sw_include '@CommentCmsPage/storefront/component/comment-form.html.twig' with {
+                    parentId: parentId
+                } %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>

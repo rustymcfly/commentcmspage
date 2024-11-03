@@ -1,0 +1,15 @@
+{
+  "plugin": {
+    "RustyMcFly": {
+      "CommentCmsPage": {
+        "label": "Comments",
+        "emailVerified": "Verified At",
+        "email": "email",
+        "active": "Activated",
+        "comment": "comment",
+        "lastName": "last name",
+        "firstName": "first name"
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+(this["webpackJsonpPlugincomment-cms-page"]=this["webpackJsonpPlugincomment-cms-page"]||[]).push([[3],{MkaU:function(e,t,n){"use strict";n.r(t),t.default={computed:{entityAware:function(){var e=this.$super("entityAware");return e.push("CommentAware"),e}}}}}]);
+//# sourceMappingURL=3.js.map

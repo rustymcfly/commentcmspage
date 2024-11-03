@@ -1,0 +1,36 @@
+.cms-element-comments {
+  li {
+    list-style: none;
+    position: relative;
+    margin-top: -1rem;
+    padding-top: 1rem;
+    &:before {
+      display: block;
+      position: absolute;
+      left: -10px;
+      height: 100%;
+      width: 3px;
+      background-color: var(--bs-border-color);
+      content: '';
+    }
+  }
+  .blink {
+    animation: blink .5s linear forwards;
+    animation-iteration-count:3;
+  }
+}
+@keyframes blink {
+  25% {
+    opacity: .5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
