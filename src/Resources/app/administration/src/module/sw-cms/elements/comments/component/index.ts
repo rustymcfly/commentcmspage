@@ -1,24 +1,28 @@
 import template from './sw-cms-el-component-comments.html.twig';
 import './sw-cms-el-component-comments.scss';
 
-const { Mixin} = Shopware;
+const {Mixin} = Shopware;
 
 export default {
-  template,
-
-  mixins: [
-    Mixin.getByName('cms-element')
-  ],
-
-  created() {
-    console.log(element.data)
-    this.createdComponent();
-  },
-
-  methods: {
-    createdComponent() {
-      this.initElementConfig('comments');
-      this.initElementData('comments');
+    template,
+    props: {
+        element: {
+            type: Object,
+            required: true
+        }
     },
-  },
+    mixins: [
+        Mixin.getByName('cms-element')
+    ],
+
+    created() {
+        this.createdComponent();
+    },
+
+    methods: {
+        createdComponent() {
+            this.initElementConfig('comments');
+            this.initElementData('comments');
+        },
+    },
 }

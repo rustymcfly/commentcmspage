@@ -1,0 +1,1 @@
+"use strict";(window["webpackJsonpPlugincomment-cms-page"]=window["webpackJsonpPlugincomment-cms-page"]||[]).push([[716],{716:function(e,t,n){n.r(t),t.default={computed:{entityAware(){let e=this.$super("entityAware");return e.push("CommentAware"),e}}}}}]);

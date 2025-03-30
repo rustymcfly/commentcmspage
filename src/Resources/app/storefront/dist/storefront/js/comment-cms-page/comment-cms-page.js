@@ -1,0 +1,1 @@
+(()=>{let e=new URLSearchParams(window.location.search);if(e.has("commentId")){let o=document.querySelector('[data-comment-id="'.concat(e.get("commentId"),'"]'));o.classList.add("blink"),o.scrollIntoView({behavior:"smooth"})}})();
